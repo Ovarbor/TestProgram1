@@ -1,4 +1,3 @@
-import org.apache.commons.lang3.StringUtils;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -43,9 +42,9 @@ public class Report {
         for (String s : things3) {
             countFalse = 0;
             for (String value : things4) {
-                if (StringUtils.containsIgnoreCase(s, value) || StringUtils.containsIgnoreCase(value, s)) {
+                if (s.toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(s.toLowerCase())) {
                     stringList.add(value);
-                } else if (!StringUtils.containsIgnoreCase(s, value) || !StringUtils.containsIgnoreCase(value, s)) {
+                } else {
                     if (compareStrings(s, value)) {
                         stringList.add(value);
                     }
